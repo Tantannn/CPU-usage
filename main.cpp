@@ -21,7 +21,7 @@ double getCpuUsage() {
     long idleTime = idle + iowait;
     long total = user + nice + sys + idle + irq + softirq;
 
-    double usage = 100.0 * (1.0 - (double)(idle - prevIdleTime) / (total - prevTotalTime));
+    double usage = 100.0 * (1.0 - (double)(idleTime - prevIdleTime) / (total - prevTotalTime));
 
     prevIdleTime = idle;
     prevTotalTime = total;
